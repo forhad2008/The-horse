@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BLACK HORSE — Born Untamed</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --black:#050505;
+  --white:#f4f3ef;
+  --gray:#9b9b96;
+  --line:rgba(255,255,255,.14);
+  --card:#11110f;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:"Archivo",sans-serif;
+  overflow-x:hidden;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button{
+  font:inherit;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+  height:76px;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 42px;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  background:rgba(5,5,5,.82);
+  backdrop-filter:blur(18px);
+}
+
+.logo{
+  width:42px;
+  height:42px;
+  object-fit:contain;
+  filter:invert(1);
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  gap:34px;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+
+.nav a{
+  position:relative;
+}
+
+.nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-7px;
+  width:0;
+  height:1px;
+  background:white;
+  transition:.3s;
+}
+
+.nav a:hover::after{
+  width:100%;
+}
+
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+.icon-btn{
+  background:none;
+  border:0;
+  color:white;
+  cursor:pointer;
+  font-size:19px;
+}
+
+.cart{
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  min-height:100svh;
+  padding:76px 0 0;
+  display:grid;
+  grid-template-columns:48% 52%;
+  border-bottom:1px solid var(--line);
+}
+
+.hero-copy{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:70px 7vw;
+  position:relative;
+}
+
+.kicker{
+  font-size:10px;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:var(--gray);
+  margin-bottom:25px;
+}
+
+.hero h1{
+  font-size:clamp(70px,10vw,170px);
+  line-height:.78;
+  letter-spacing:-.075em;
+  font-weight:900;
+  text-transform:uppercase;
+}
+
+.hero h1 span{
+  display:block;
+  font-family:"DM Serif Display",serif;
+  font-style:italic;
+  font-weight:400;
+  letter-spacing:-.06em;
+  margin-left:30px;
+}
+
+.hero-text{
+  max-width:390px;
+  color:#aaa9a4;
+  font-size:13px;
+  line-height:1.8;
+  margin-top:42px;
+}
+
+.hero-btn{
+  margin-top:35px;
+  width:max-content;
+  border:1px solid white;
+  padding:15px 27px;
+  font-size:10px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  transition:.3s;
+}
+
+.hero-btn:hover{
+  background:white;
+  color:black;
+}
+
+.hero-visual{
+  min-height:calc(100svh - 76px);
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:
+    radial-gradient(circle at center,
+      #252525 0%,
+      #0c0c0c 48%,
+      #050505 75%);
+}
+
+.hero-visual::before{
+  content:"BLACK HORSE";
+  position:absolute;
+  font-size:18vw;
+  font-weight:900;
+  letter-spacing:-.08em;
+  color:rgba(255,255,255,.025);
+  white-space:nowrap;
+  transform:rotate(-90deg);
+}
+
+.hero-visual img{
+  width:min(78%,720px);
+  max-height:85%;
+  object-fit:contain;
+  position:relative;
+  z-index:2;
+  filter:grayscale(1) contrast(1.15);
+  mix-blend-mode:screen;
+  animation:horseFloat 7s ease-in-out infinite;
+}
+
+@keyframes horseFloat{
+  0%,100%{transform:translateY(0) scale(1)}
+  50%{transform:translateY(-13px) scale(1.015)}
+}
+
+/* =========================
+   MARQUEE
+========================= */
+
+.marquee{
+  overflow:hidden;
+  border-bottom:1px solid var(--line);
+  white-space:nowrap;
+}
+
+.marquee-track{
+  display:inline-block;
+  padding:18px 0;
+  animation:marquee 25s linear infinite;
+}
+
+.marquee span{
+  font-size:12px;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  margin:0 30px;
+}
+
+@keyframes marquee{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+/* =========================
+   DISCOVER
+========================= */
+
+.section{
+  padding:120px 5vw;
+}
+
+.section-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  margin-bottom:45px;
+}
+
+.section-label{
+  font-size:10px;
+  color:var(--gray);
+  letter-spacing:.25em;
+  text-transform:uppercase;
+}
+
+.section-title{
+  font-size:clamp(42px,6vw,90px);
+  line-height:.85;
+  letter-spacing:-.065em;
+  text-transform:uppercase;
+}
+
+.section-title em{
+  font-family:"DM Serif Display",serif;
+  font-weight:400;
+  text-transform:none;
+}
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+
+.product{
+  background:var(--card);
+  min-height:520px;
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+}
+
+.product-image{
+  height:400px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:#171715;
+}
+
+.product-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.7s cubic-bezier(.2,.7,.2,1);
+  filter:grayscale(1);
+}
+
+.product:hover .product-image img{
+  transform:scale(1.07);
+}
+
+.product-info{
+  padding:20px;
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.product-name{
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+
+.product-price{
+  color:#aaa;
+  font-size:11px;
+}
+
+.badge{
+  position:absolute;
+  top:14px;
+  left:14px;
+  border:1px solid rgba(255,255,255,.35);
+  padding:7px 10px;
+  font-size:8px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+
+/* =========================
+   MANIFESTO
+========================= */
+
+.manifesto{
+  min-height:80vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:100px 7vw;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(circle at center,
+    #171717 0,
+    #050505 60%);
+}
+
+.manifesto-inner{
+  max-width:1050px;
+}
+
+.manifesto-small{
+  color:#888;
+  font-size:10px;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  margin-bottom:30px;
+}
+
+.manifesto h2{
+  font-size:clamp(48px,8vw,125px);
+  line-height:.84;
+  letter-spacing:-.07em;
+  text-transform:uppercase;
+}
+
+.manifesto h2 em{
+  font-family:"DM Serif Display",serif;
+  font-weight:400;
+  text-transform:none;
+}
+
+/* =========================
+   EDITORIAL IMAGE
+========================= */
+
+.editorial{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:700px;
+}
+
+.editorial-image{
+  background:#111;
+  overflow:hidden;
+}
+
+.editorial-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:grayscale(1);
+}
+
+.editorial-copy{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:8vw;
+  border-left:1px solid var(--line);
+}
+
+.editorial-copy h3{
+  font-size:clamp(40px,5vw,75px);
+  line-height:.9;
+  letter-spacing:-.06em;
+  text-transform:uppercase;
+}
+
+.editorial-copy p{
+  color:#999;
+  max-width:430px;
+  font-size:13px;
+  line-height:1.9;
+  margin-top:30px;
+}
+
+/* =========================
+   NEWSLETTER
+========================= */
+
+.newsletter{
+  padding:120px 7vw;
+  text-align:center;
+}
+
+.newsletter h2{
+  font-size:clamp(45px,7vw,100px);
+  letter-spacing:-.07em;
+  line-height:.85;
+  text-transform:uppercase;
+}
+
+.newsletter p{
+  color:#888;
+  margin:25px auto 40px;
+  max-width:430px;
+  font-size:12px;
+  line-height:1.8;
+}
+
+.email-form{
+  max-width:520px;
+  margin:auto;
+  display:flex;
+  border-bottom:1px solid white;
+}
+
+.email-form input{
+  flex:1;
+  background:none;
+  border:0;
+  outline:0;
+  color:white;
+  padding:17px 5px;
+  font-size:12px;
+}
+
+.email-form button{
+  background:none;
+  border:0;
+  color:white;
+  font-size:10px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  cursor:pointer;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  border-top:1px solid var(--line);
+  padding:60px 5vw 30px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:40px;
+}
+
+.footer-brand{
+  font-size:clamp(35px,5vw,70px);
+  font-weight:900;
+  letter-spacing:-.07em;
+  line-height:.8;
+}
+
+.footer-column h4{
+  color:#777;
+  font-size:9px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  margin-bottom:20px;
+}
+
+.footer-column a{
+  display:block;
+  font-size:11px;
+  margin-bottom:12px;
+  color:#ccc;
+}
+
+.footer-bottom{
+  border-top:1px solid var(--line);
+  margin-top:60px;
+  padding-top:20px;
+  display:flex;
+  justify-content:space-between;
+  color:#666;
+  font-size:9px;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+
+/* =========================
+   CART DRAWER
+========================= */
+
+.cart-drawer{
+  position:fixed;
+  top:0;
+  right:-420px;
+  width:400px;
+  height:100%;
+  background:#eee;
+  color:#111;
+  z-index:2000;
+  padding:30px;
+  transition:.45s cubic-bezier(.2,.8,.2,1);
+}
+
+.cart-drawer.open{
+  right:0;
+}
+
+.cart-head{
+  display:flex;
+  justify-content:space-between;
+  border-bottom:1px solid #bbb;
+  padding-bottom:20px;
+}
+
+.close{
+  background:none;
+  border:0;
+  cursor:pointer;
+  font-size:25px;
+}
+
+.cart-empty{
+  margin-top:100px;
+  text-align:center;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.15em;
+}
+
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  z-index:1900;
+  opacity:0;
+  visibility:hidden;
+  transition:.3s;
+}
+
+.overlay.show{
+  opacity:1;
+  visibility:visible;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+  header{
+    height:65px;
+    padding:0 20px;
+  }
+
+  .nav{
+    display:none;
+  }
+
+  .logo{
+    width:37px;
+    height:37px;
+  }
+
+  .hero{
+    grid-template-columns:1fr;
+    padding-top:65px;
+  }
+
+  .hero-copy{
+    min-height:58vh;
+    padding:70px 25px 45px;
+    order:2;
+  }
+
+  .hero-visual{
+    min-height:65vh;
+    order:1;
+  }
+
+  .hero-visual img{
+    width:90%;
+  }
+
+  .hero h1{
+    font-size:22vw;
+  }
+
+  .products{
+    grid-template-columns:1fr 1fr;
+    gap:7px;
+  }
+
+  .product{
+    min-height:390px;
+  }
+
+  .product-image{
+    height:285px;
+  }
+
+  .product-info{
+    padding:14px;
+    display:block;
+  }
+
+  .product-price{
+    margin-top:8px;
+  }
+
+  .section{
+    padding:80px 18px;
+  }
+
+  .section-top{
+    display:block;
+  }
+
+  .section-label{
+    margin-bottom:18px;
+  }
+
+  .editorial{
+    grid-template-columns:1fr;
+  }
+
+  .editorial-image{
+    min-height:520px;
+  }
+
+  .editorial-copy{
+    min-height:500px;
+    border-left:0;
+    border-top:1px solid var(--line);
+    padding:60px 25px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .footer-brand{
+    grid-column:1/-1;
+    margin-bottom:30px;
+  }
+
+  .cart-drawer{
+    width:min(90vw,400px);
+  }
+}
+
+@media(max-width:500px){
+
+  .header-right{
+    gap:12px;
+  }
+
+  .cart{
+    font-size:9px;
+  }
+
+  .hero-visual{
+    min-height:52vh;
+  }
+
+  .hero-copy{
+    min-height:55vh;
+  }
+
+  .products{
+    grid-template-columns:1fr;
+  }
+
+  .product{
+    min-height:480px;
+  }
+
+  .product-image{
+    height:380px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .footer-brand{
+    grid-column:auto;
+  }
+
+  .footer-bottom{
+    display:block;
+    line-height:2;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+
+  <a href="#" aria-label="Black Horse home">
+    <img src="horse-logo.png" class="logo" alt="Black Horse">
+  </a>
+
+  <nav class="nav">
+    <a href="#shop">Shop</a>
+    <a href="#collections">Collections</a>
+    <a href="#story">Story</a>
+    <a href="#world">World</a>
+  </nav>
+
+  <div class="header-right">
+    <button class="icon-btn">⌕</button>
+
+    <button class="icon-btn cart" onclick="openCart()">
+      Cart <span id="cartCount">0</span>
+    </button>
+  </div>
+
+</header>
+
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="hero-copy">
+
+    <div class="kicker">
+      Independent / Est. 2026
+    </div>
+
+    <h1>
+      Black
+      <span>Horse</span>
+    </h1>
+
+    <p class="hero-text">
+      Built from motion, instinct and rebellion.
+      Black Horse creates elevated streetwear for
+      those who refuse to move with the crowd.
+    </p>
+
+    <a href="#shop" class="hero-btn">
+      Enter Collection →
+    </a>
+
+  </div>
+
+  <div class="hero-visual">
+
+    <!-- YOUR GENERATED HORSE LOGO -->
+    <img src="horse-logo.png" alt="Abstract Black Horse">
+
+  </div>
+
+</section>
+
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>BLACK HORSE</span>
+    <span>NO RULES</span>
+    <span>MOVE DIFFERENT</span>
+    <span>BUILT UNTAMED</span>
+    <span>BLACK HORSE</span>
+    <span>NO RULES</span>
+    <span>MOVE DIFFERENT</span>
+    <span>BUILT UNTAMED</span>
+  </div>
+</div>
+
+
+<!-- SHOP -->
+<section class="section" id="shop">
+
+  <div class="section-top">
+
+    <div>
+      <div class="section-label">01 / Collection</div>
+
+      <h2 class="section-title">
+        The <em>Drop</em>
+      </h2>
+    </div>
+
+    <a href="#" class="section-label">View All →</a>
+
+  </div>
+
+
+  <div class="products">
+
+    <article class="product">
+
+      <div class="badge">New</div>
+
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85"
+             alt="Black Horse Jacket">
+      </div>
+
+      <div class="product-info">
+        <div class="product-name">
+          Horseman Overshirt
+        </div>
+        <div class="product-price">
+          $145
+        </div>
+      </div>
+
+    </article>
+
+
+    <article class="product">
+
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=900&q=85"
+             alt="Black Horse Tee">
+      </div>
+
+      <div class="product-info">
+        <div class="product-name">
+          Nocturne Tee
+        </div>
+        <div class="product-price">
+          $65
+        </div>
+      </div>
+
+    </article>
+
+
+    <article class="product">
+
+      <div class="badge">Limited</div>
+
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=85"
+             alt="Black Horse Denim">
+      </div>
+
+      <div class="product-info">
+        <div class="product-name">
+          Eclipse Denim
+        </div>
+        <div class="product-price">
+          $180
+        </div>
+      </div>
+
+    </article>
+
+
+    <article class="product">
+
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=85"
+             alt="Black Horse Shirt">
+      </div>
+
+      <div class="product-info">
+        <div class="product-name">
+          Signature Horse T
+        </div>
+        <div class="product-price">
+          $75
+        </div>
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+<!-- MANIFESTO -->
+<section class="manifesto" id="story">
+
+  <div class="manifesto-inner">
+
+    <div class="manifesto-small">
+      The Black Horse Philosophy
+    </div>
+
+    <h2>
+      Don't follow
+      <em>the road.</em>
+      Create it.
+    </h2>
+
+  </div>
+
+</section>
+
+
+<!-- EDITORIAL -->
+<section class="editorial" id="collections">
+
+  <div class="editorial-image">
+    <img
+      src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1200&q=90"
+      alt="Black Horse editorial">
+  </div>
+
+  <div class="editorial-copy">
+
+    <div class="section-label">
+      02 / The World
+    </div>
+
+    <h3>
+      Born from
+      <em>motion.</em>
+    </h3>
+
+    <p>
+      Black Horse is a visual language built around
+      freedom, movement and controlled chaos.
+      Every collection strips away the unnecessary
+      and leaves behind pieces with attitude.
+    </p>
+
+    <a href="#" class="hero-btn">
+      Discover the story →
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- WORLD -->
+<section class="section" id="world">
+
+  <div class="section-top">
+
+    <div>
+      <div class="section-label">03 / Journal</div>
+
+      <h2 class="section-title">
+        Black <em>World</em>
+      </h2>
+    </div>
+
+  </div>
+
+  <div class="products">
+
+    <article class="product">
+
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"
+             alt="Editorial">
+      </div>
+
+      <div class="product-info">
+        <div class="product-name">
+          After Dark
+        </div>
+      </div>
+
+    </article>
+
+
+    <article class="product">
+
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=85"
+             alt="Editorial">
+      </div>
+
+      <div class="product-info">
+        <div class="product-name">
+          New Movement
+        </div>
+      </div>
+
+    </article>
+
+
+    <article class="product">
+
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=900&q=85"
+             alt="Editorial">
+      </div>
+
+      <div class="product-info">
+        <div class="product-name">
+          No Permission
+        </div>
+      </div>
+
+    </article>
+
+
+    <article class="product">
+
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=900&q=85"
+             alt="Editorial">
+      </div>
+
+      <div class="product-info">
+        <div class="product-name">
+          Black Season
+        </div>
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+
+  <div class="section-label">
+    Join the movement
+  </div>
+
+  <h2>
+    Stay<br>
+    <em>Wild.</em>
+  </h2>
+
+  <p>
+    New drops, private releases and Black Horse
+    stories delivered directly to your inbox.
+  </p>
+
+  <form class="email-form" onsubmit="subscribe(event)">
+    <input type="email" placeholder="YOUR EMAIL" required>
+    <button type="submit">Subscribe →</button>
+  </form>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+  <div class="footer-grid">
+
+    <div class="footer-brand">
+      BLACK<br>HORSE
+    </div>
+
+    <div class="footer-column">
+      <h4>Explore</h4>
+      <a href="#shop">Shop</a>
+      <a href="#collections">Collections</a>
+      <a href="#story">Story</a>
+      <a href="#world">Journal</a>
+    </div>
+
+    <div class="footer-column">
+      <h4>Support</h4>
+      <a href="#">Contact</a>
+      <a href="#">Shipping</a>
+      <a href="#">Returns</a>
+      <a href="#">FAQ</a>
+    </div>
+
+    <div class="footer-column">
+      <h4>Social</h4>
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#">YouTube</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2026 BLACK HORSE</span>
+    <span>Made for the untamed.</span>
+  </div>
+
+</footer>
+
+
+<!-- CART -->
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+
+<aside class="cart-drawer" id="cartDrawer">
+
+  <div class="cart-head">
+
+    <strong>
+      YOUR CART
+    </strong>
+
+    <button class="close" onclick="closeCart()">
+      ×
+    </button>
+
+  </div>
+
+  <div class="cart-empty">
+    Your cart is currently empty.
+  </div>
+
+</aside>
+
+
+<script>
+
+function openCart(){
+
+  document
+    .getElementById("cartDrawer")
+    .classList.add("open");
+
+  document
+    .getElementById("overlay")
+    .classList.add("show");
+
+  document.body.style.overflow="hidden";
+}
+
+
+function closeCart(){
+
+  document
+    .getElementById("cartDrawer")
+    .classList.remove("open");
+
+  document
+    .getElementById("overlay")
+    .classList.remove("show");
+
+  document.body.style.overflow="";
+}
+
+
+function subscribe(e){
+
+  e.preventDefault();
+
+  const input=e.target.querySelector("input");
+  const button=e.target.querySelector("button");
+
+  button.textContent="Subscribed ✓";
+  input.value="";
+
+}
+
+
+/* Header changes slightly after scrolling */
+
+window.addEventListener("scroll",()=>{
+
+  const header=document.querySelector("header");
+
+  if(window.scrollY>40){
+    header.style.background="rgba(5,5,5,.96)";
+  }else{
+    header.style.background="rgba(5,5,5,.82)";
+  }
+
+});
+
+</script>
+
+</body>
+</html>
